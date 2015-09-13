@@ -7,4 +7,4 @@ This is a feather-light implementation of an event-manager for any JS object, no
 
 Download the project, double click on the mail HTML file to see all the tests.
 
-[Here](http://muzietto.github.io/kolosso-eventer/) is a demo.
+[Here](http://muzietto.github.io/kolosso-eventer/) is a presentation.
