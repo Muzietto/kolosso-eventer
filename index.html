@@ -44,7 +44,7 @@
 			<fieldset id="allDefaultsDiv" class="" style="">
 				<legend>1) All defaults</legend>
 				<p>The purpose of kolosso.eventer is to yyyyy</p>
-        <div id="sandbox">sandbox loading...</div>
+        <div class="sandbox" id="sandbox1">sandbox loading...</div>
 			</fieldset>
 			
 			<!-- The sandbox template -->
@@ -84,7 +84,7 @@
       jQuery(document).ready(function($) {
         // Create the sandbox:
         window.sandbox = new Sandbox.View({
-          el : $('#sandbox'),
+          el : $('#sandbox1'),
           model : new Sandbox.Model(), // or etc.          
           // these are optional (defaults are given here):
           resultPrefix : "  => ",
