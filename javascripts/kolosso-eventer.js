@@ -72,4 +72,5 @@ if (typeof module === 'object' && typeof module.exports !== 'undefined') {
   };
 } else {
   var EVENTER = eventerFactory();
+  var eventer = EVENTER;
 }
