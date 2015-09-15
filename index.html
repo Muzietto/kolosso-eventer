@@ -48,6 +48,11 @@
           <p>The purpose of kolosso.eventer is to yyyyy</p>
           <div class="sandbox" id="sandbox1">sandbox loading...</div>
         </fieldset>
+        <fieldset id="allDefaultsDiv" class="" style="">
+          <legend>2) A wonderful motion picture</legend>
+          <p>The purpose of kolosso.eventer is to zzzzzzz</p>
+          <div class="sandbox" id="sandbox2">sandbox loading...</div>
+        </fieldset>
         
         <!-- The sandbox template -->
         <script type="text/template" id="tplSandbox">
@@ -75,24 +80,35 @@
       </footer>
     </div>
     <script src="javascripts/scale.fix.js"></script>
-    <script src="javascripts/kolosso-eventer.js"></script>
     <script src="javascripts/libs/underscore.min.js"></script>
     <script src="javascripts/libs/backbone.min.js"></script>
     <script src="javascripts/libs/backbone-localstorage.min.js"></script><!-- opt -->
     <script src="javascripts/libs/jquery.min.js"></script>
 
+    <script src="javascripts/kolosso-eventer.js"></script>
+    <script src="javascripts/sample_01.js"></script>
+
     <script src="javascripts/sandbox-console.js"></script>
     <script type="text/javascript">
       jQuery(document).ready(function($) {
         // Create the sandbox:
-        window.sandbox = new Sandbox.View({
+        window.sandbox1 = new Sandbox.View({
           el : $('#sandbox1'),
           model : new Sandbox.Model(), // or etc.          
           // these are optional (defaults are given here):
-          resultPrefix : "  => ",
+          resultPrefix : " => ",
           helpText : "type javascript commands into the console, hit enter to evaluate. \n[up/down] to scroll through history, ':clear' to reset it. \n[alt + return/up/down] for returns and multi-line editing.",
           tabCharacter : "\t",
-          placeholder : "// type some javascript and hit enter (:help for info)"
+          placeholder : "// type two.trigger('gigio') and hit enter (:help for info)"
+        });
+        window.sandbox2 = new Sandbox.View({
+          el : $('#sandbox2'),
+          model : new Sandbox.Model(), // or etc.          
+          // these are optional (defaults are given here):
+          resultPrefix : " => ",
+          helpText : "type javascript commands into the console, hit enter to evaluate. \n[up/down] to scroll through history, ':clear' to reset it. \n[alt + return/up/down] for returns and multi-line editing.",
+          tabCharacter : "\t",
+          placeholder : "// type two.trigger('gigios') and hit enter (:help for info)"
         });
       });
     </script>    
