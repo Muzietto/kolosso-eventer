@@ -32,39 +32,41 @@
           <li><a href="https://github.com/Muzietto/kolosso-eventer/tarball/master">Download <strong>TAR Ball</strong></a></li>
           <li><a href="https://github.com/Muzietto/kolosso-eventer">View On <strong>GitHub</strong></a></li>
         </ul>
+        
+        <img src="https://raw.githubusercontent.com/Muzietto/kolosso-eventer/master/img/kolosso.jpg"></img>
       </header>
       <section>
         <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages">
-<span class="octicon octicon-link"></span></a>Kolosso-eventer presentation.</h3>
+          <a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages">
+          <span class="octicon octicon-link"></span></a>Kolosso-eventer presentation.</h3>
 
 		
-		<p>The following examples illustrate the basic functionalities of this library.<br/>
-		All the needed customisation code is put inside this HTML page. <br/></p>
-			<fieldset id="allDefaultsDiv" class="" style="">
-				<legend>1) All defaults</legend>
-				<p>The purpose of kolosso.eventer is to yyyyy</p>
-        <div class="sandbox" id="sandbox1">sandbox loading...</div>
-			</fieldset>
-			
-			<!-- The sandbox template -->
-      <script type="text/template" id="tplSandbox">
-        <pre class="output"></pre>
-        <div class="input">
-          <textarea rows="1" placeholder="<%= placeholder %>"></textarea>
-        </div>
-      </script>
+        <p>The following examples illustrate the basic functionalities of this library.<br/>
+        All the needed customisation code is put inside this HTML page. <br/></p>
+        <fieldset id="allDefaultsDiv" class="" style="">
+          <legend>1) All defaults</legend>
+          <p>The purpose of kolosso.eventer is to yyyyy</p>
+          <div class="sandbox" id="sandbox1">sandbox loading...</div>
+        </fieldset>
+        
+        <!-- The sandbox template -->
+        <script type="text/template" id="tplSandbox">
+          <pre class="output"></pre>
+          <div class="input">
+            <textarea rows="1" placeholder="<%= placeholder %>"></textarea>
+          </div>
+        </script>
 
-      <!-- The command/result template (NB whitespace/line breaks matter inside <pre> tag): -->
-      <script type="text/template" id="tplCommand"><% if (! _hidden) { %><span class="command"><%= command %></span>
-      <span class="prefix"><%= this.resultPrefix %></span><span class="<%= _class %>"><%= result %></span>
-      <% } %></script>
-      
-			<p>Other features, not illustrated in this page:<br/>
-			- Serialisation of the plugin status with ordered recording of the chosen items<br/>
-			- Restore of the plugin after serialisation.</p>
-			
-			<br clear="both"/>
+        <!-- The command/result template (NB whitespace/line breaks matter inside <pre> tag): -->
+        <script type="text/template" id="tplCommand"><% if (! _hidden) { %><span class="command"><%= command %></span>
+        <span class="prefix"><%= this.resultPrefix %></span><span class="<%= _class %>"><%= result %></span>
+        <% } %></script>
+        
+        <p>Other features, not illustrated in this page:<br/>
+        - Serialisation of the plugin status with ordered recording of the chosen items<br/>
+        - Restore of the plugin after serialisation.</p>
+        
+        <br clear="both"/>
 
       </section>
       <footer>
