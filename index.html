@@ -45,7 +45,7 @@
         All the needed customisation code is put inside this HTML page. <br/></p>
 
         <fieldset id="sample_01" class="" style="">
-          <legend>Working principles</legend>
+          <legend>1) Working principles</legend>
           <p>Kolosso-eventer decorates a JS Object or Function providing first of all the two basic methods 
           <code>on(event_type, callback)</code> and <code>trigger(event_type)</code>.</p>
             <pre>
@@ -56,42 +56,47 @@ two.on('event_type_1', function(){ alert('got an event_type_1'); });</pre>
         </fieldset>
 
         <fieldset id="sample_02" class="" style="">
-          <legend>Listening to oneself</legend>
+          <legend>2) Listening to oneself</legend>
           <p>A kolosso-evented object or function can first of all listen to its own events.<br/>
           This is mainly useful when a complex widget must synchronize its own parts.</p>
             <pre>
 var one = ke({});
-one.on('event_type_2', function(){ console.log('got an event_type_2'); });</pre>
+one.on('event_type_2', function(){ alert('got an event_type_2'); });</pre>
           <div class="sandbox" id="sandbox2">sandbox loading...</div>
         </fieldset>
 
         <fieldset id="sample_03" class="" style="">
-          <legend>Listening to oneself</legend>
-          <p>A kolosso-evented object or function can first of all listen to its own events.<br/>
-          This is mainly useful when a complex widget must synchronize its own parts.</p>
+          <legend>3) Event payloads and multiple callbacks</legend>
+          <p>Each trigger command can add a payload to its event.<br/>
+          Listeners can attach many callbacks to the same event type. There is no guarantee on
+          the order callbacks are executed</p>
             <pre>
 var one = ke({});
-one.on('event_type_2', function(){ console.log('got an event_type_2'); });</pre>
+var two = ke(function(){});
+two.on('event_type_3', function(payload){ alert('got an event_type_3'); });
+two.on('event_type_3', function(payload){ alert('payload=' + payload); });</pre>
           <div class="sandbox" id="sandbox3">sandbox loading...</div>
         </fieldset>
 
         <fieldset id="sample_04" class="" style="">
-          <legend>Listening to oneself</legend>
-          <p>A kolosso-evented object or function can first of all listen to its own events.<br/>
-          This is mainly useful when a complex widget must synchronize its own parts.</p>
+          <legend>4) Subscribers, publishers and global events</legend>
+          <p>Pub-Sub schema's involving two or more objects/functions are commonplace.<br/>
+             The <pre>ke</pre>object itself is a publisher, to whom any kolosso-evented 
+             instance may listen.</p>
             <pre>
 var one = ke({});
-one.on('event_type_2', function(){ console.log('got an event_type_2'); });</pre>
+var two = ke(function(){});
+two.on('event_type_4', function(payload){ alert('payload=' + payload); });</pre>
           <div class="sandbox" id="sandbox4">sandbox loading...</div>
         </fieldset>
 
         <fieldset id="sample_05" class="" style="">
-          <legend>Listening to oneself</legend>
+          <legend>5) Listening to oneself</legend>
           <p>A kolosso-evented object or function can first of all listen to its own events.<br/>
           This is mainly useful when a complex widget must synchronize its own parts.</p>
             <pre>
 var one = ke({});
-one.on('event_type_2', function(){ console.log('got an event_type_2'); });</pre>
+one.on('event_type_5', function(){ alert('got an event_type_5'); });</pre>
           <div class="sandbox" id="sandbox5">sandbox loading...</div>
         </fieldset>
         
@@ -162,7 +167,7 @@ one.on('event_type_2', function(){ console.log('got an event_type_2'); });</pre>
           resultPrefix : " => ",
           helpText : "type javascript commands into the console, hit enter to evaluate. \n[up/down] to scroll through history, ':clear' to reset it. \n[alt + return/up/down] for returns and multi-line editing.",
           tabCharacter : "\t",
-          placeholder : "// type one.trigger('event_type_2') and hit enter (:help for info)"
+          placeholder : "// type one.trigger('event_type_3','whatever') and hit enter (:help for info)"
         });
         window.sandbox4 = new Sandbox.View({
           el : $('#sandbox4'),
@@ -171,7 +176,7 @@ one.on('event_type_2', function(){ console.log('got an event_type_2'); });</pre>
           resultPrefix : " => ",
           helpText : "type javascript commands into the console, hit enter to evaluate. \n[up/down] to scroll through history, ':clear' to reset it. \n[alt + return/up/down] for returns and multi-line editing.",
           tabCharacter : "\t",
-          placeholder : "// type one.trigger('event_type_2') and hit enter (:help for info)"
+          placeholder : "// type one.trigger('event_type_4') and hit enter (:help for info)"
         });
         window.sandbox5 = new Sandbox.View({
           el : $('#sandbox5'),
@@ -180,7 +185,7 @@ one.on('event_type_2', function(){ console.log('got an event_type_2'); });</pre>
           resultPrefix : " => ",
           helpText : "type javascript commands into the console, hit enter to evaluate. \n[up/down] to scroll through history, ':clear' to reset it. \n[alt + return/up/down] for returns and multi-line editing.",
           tabCharacter : "\t",
-          placeholder : "// type one.trigger('event_type_2') and hit enter (:help for info)"
+          placeholder : "// type one.trigger('event_type_5') and hit enter (:help for info)"
         });
       });
     </script>    

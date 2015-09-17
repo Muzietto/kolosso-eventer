@@ -1,5 +1,4 @@
-
 var one = ke({});
-one.on('event_type_2', function(){ alert('got an event_type_2'); });
-
-
+var two = ke(function(){});
+two.on('event_type_3', function(payload){ alert('got an event_type_3'); });
+two.on('event_type_3', function(payload){ alert('payload=' + payload); });
