@@ -63,12 +63,22 @@ code, pre {
   font-size:12px;
 }
 
+code {
+  margin: 0px 5px;
+  padding: 2px 2px;
+  background: #f8f8f8;
+}
+
 pre {
   padding:8px 15px;
   background: #f8f8f8;  
   border-radius:5px;
   border:1px solid #e5e5e5;
   overflow-x: auto;
+}
+
+legend {
+  padding: 0px 10px;
 }
 
 table {
@@ -141,6 +151,10 @@ header ul a {
 strong {
   color:#222;
   font-weight:700;
+}
+
+.block {
+  display: block;
 }
 
 header ul li + li {

@@ -43,15 +43,56 @@
 		
         <p>The following examples illustrate the basic functionalities of this library.<br/>
         All the needed customisation code is put inside this HTML page. <br/></p>
-        <fieldset id="allDefaultsDiv" class="" style="">
-          <legend>1) All defaults</legend>
-          <p>The purpose of kolosso.eventer is to yyyyy</p>
+
+        <fieldset id="sample_01" class="" style="">
+          <legend>Working principles</legend>
+          <p>Kolosso-eventer decorates a JS Object or Function providing first of all the two basic methods 
+          <code>on(event_type, callback)</code> and <code>trigger(event_type)</code>.</p>
+            <pre>
+var one = ke({});
+var two = ke(function(){});
+two.on('event_type_1', function(){ alert('got an event_type_1'); });</pre>
           <div class="sandbox" id="sandbox1">sandbox loading...</div>
         </fieldset>
-        <fieldset id="allDefaultsDiv" class="" style="">
-          <legend>2) A wonderful motion picture</legend>
-          <p>The purpose of kolosso.eventer is to zzzzzzz</p>
+
+        <fieldset id="sample_02" class="" style="">
+          <legend>Listening to oneself</legend>
+          <p>A kolosso-evented object or function can first of all listen to its own events.<br/>
+          This is mainly useful when a complex widget must synchronize its own parts.</p>
+            <pre>
+var one = ke({});
+one.on('event_type_2', function(){ console.log('got an event_type_2'); });</pre>
           <div class="sandbox" id="sandbox2">sandbox loading...</div>
+        </fieldset>
+
+        <fieldset id="sample_03" class="" style="">
+          <legend>Listening to oneself</legend>
+          <p>A kolosso-evented object or function can first of all listen to its own events.<br/>
+          This is mainly useful when a complex widget must synchronize its own parts.</p>
+            <pre>
+var one = ke({});
+one.on('event_type_2', function(){ console.log('got an event_type_2'); });</pre>
+          <div class="sandbox" id="sandbox3">sandbox loading...</div>
+        </fieldset>
+
+        <fieldset id="sample_04" class="" style="">
+          <legend>Listening to oneself</legend>
+          <p>A kolosso-evented object or function can first of all listen to its own events.<br/>
+          This is mainly useful when a complex widget must synchronize its own parts.</p>
+            <pre>
+var one = ke({});
+one.on('event_type_2', function(){ console.log('got an event_type_2'); });</pre>
+          <div class="sandbox" id="sandbox4">sandbox loading...</div>
+        </fieldset>
+
+        <fieldset id="sample_05" class="" style="">
+          <legend>Listening to oneself</legend>
+          <p>A kolosso-evented object or function can first of all listen to its own events.<br/>
+          This is mainly useful when a complex widget must synchronize its own parts.</p>
+            <pre>
+var one = ke({});
+one.on('event_type_2', function(){ console.log('got an event_type_2'); });</pre>
+          <div class="sandbox" id="sandbox5">sandbox loading...</div>
         </fieldset>
         
         <!-- The sandbox template -->
@@ -86,7 +127,11 @@
     <script src="javascripts/libs/jquery.min.js"></script>
 
     <script src="javascripts/kolosso-eventer.js"></script>
-    <script src="javascripts/sample_01.js"></script>
+    <script src="javascripts/samples/sample_01.js"></script>
+    <script src="javascripts/samples/sample_02.js"></script>
+    <script src="javascripts/samples/sample_03.js"></script>
+    <script src="javascripts/samples/sample_04.js"></script>
+    <script src="javascripts/samples/sample_05.js"></script>
 
     <script src="javascripts/sandbox-console.js"></script>
     <script type="text/javascript">
@@ -99,7 +144,7 @@
           resultPrefix : " => ",
           helpText : "type javascript commands into the console, hit enter to evaluate. \n[up/down] to scroll through history, ':clear' to reset it. \n[alt + return/up/down] for returns and multi-line editing.",
           tabCharacter : "\t",
-          placeholder : "// type two.trigger('gigio') and hit enter (:help for info)"
+          placeholder : "// type one.trigger('event_type_1') and hit enter (:help for info)"
         });
         window.sandbox2 = new Sandbox.View({
           el : $('#sandbox2'),
@@ -108,7 +153,34 @@
           resultPrefix : " => ",
           helpText : "type javascript commands into the console, hit enter to evaluate. \n[up/down] to scroll through history, ':clear' to reset it. \n[alt + return/up/down] for returns and multi-line editing.",
           tabCharacter : "\t",
-          placeholder : "// type two.trigger('gigios') and hit enter (:help for info)"
+          placeholder : "// type one.trigger('event_type_2') and hit enter (:help for info)"
+        });
+        window.sandbox3 = new Sandbox.View({
+          el : $('#sandbox3'),
+          model : new Sandbox.Model(), // or etc.          
+          // these are optional (defaults are given here):
+          resultPrefix : " => ",
+          helpText : "type javascript commands into the console, hit enter to evaluate. \n[up/down] to scroll through history, ':clear' to reset it. \n[alt + return/up/down] for returns and multi-line editing.",
+          tabCharacter : "\t",
+          placeholder : "// type one.trigger('event_type_2') and hit enter (:help for info)"
+        });
+        window.sandbox4 = new Sandbox.View({
+          el : $('#sandbox4'),
+          model : new Sandbox.Model(), // or etc.          
+          // these are optional (defaults are given here):
+          resultPrefix : " => ",
+          helpText : "type javascript commands into the console, hit enter to evaluate. \n[up/down] to scroll through history, ':clear' to reset it. \n[alt + return/up/down] for returns and multi-line editing.",
+          tabCharacter : "\t",
+          placeholder : "// type one.trigger('event_type_2') and hit enter (:help for info)"
+        });
+        window.sandbox5 = new Sandbox.View({
+          el : $('#sandbox5'),
+          model : new Sandbox.Model(), // or etc.          
+          // these are optional (defaults are given here):
+          resultPrefix : " => ",
+          helpText : "type javascript commands into the console, hit enter to evaluate. \n[up/down] to scroll through history, ':clear' to reset it. \n[alt + return/up/down] for returns and multi-line editing.",
+          tabCharacter : "\t",
+          placeholder : "// type one.trigger('event_type_2') and hit enter (:help for info)"
         });
       });
     </script>    
