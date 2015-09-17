@@ -77,8 +77,13 @@ pre {
   overflow-x: auto;
 }
 
+fieldset {
+  margin-top: 15px;
+}
+
 legend {
   padding: 0px 10px;
+  font-size: 1.5em;
 }
 
 table {

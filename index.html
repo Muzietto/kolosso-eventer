@@ -51,7 +51,7 @@
             <pre>
 var one = ke({});
 var two = ke(function(){});
-two.on('event_type_1', function(){ alert('got an event_type_1'); });</pre>
+two.on('event_1', function(){ alert('got an event_1'); });</pre>
           <div class="sandbox" id="sandbox1">sandbox loading...</div>
         </fieldset>
 
@@ -61,42 +61,44 @@ two.on('event_type_1', function(){ alert('got an event_type_1'); });</pre>
           This is mainly useful when a complex widget must synchronize its own parts.</p>
             <pre>
 var one = ke({});
-one.on('event_type_2', function(){ alert('got an event_type_2'); });</pre>
+one.on('event_2', function(){ alert('got an event_2'); });</pre>
           <div class="sandbox" id="sandbox2">sandbox loading...</div>
         </fieldset>
 
         <fieldset id="sample_03" class="" style="">
-          <legend>3) Event payloads and multiple callbacks</legend>
-          <p>Each trigger command can add a payload to its event.<br/>
-          Listeners can attach many callbacks to the same event type. There is no guarantee on
-          the order callbacks are executed</p>
+          <legend>3) Subscribers, publishers and global events</legend>
+          <p>Pub/Sub schema's involving two+ objects or functions are commonplace.<br/>
+             The <code>ke</code>object itself is a publisher, to whom any kolosso-evented 
+             instance will listen.</p>
             <pre>
 var one = ke({});
 var two = ke(function(){});
-two.on('event_type_3', function(payload){ alert('got an event_type_3'); });
-two.on('event_type_3', function(payload){ alert('payload=' + payload); });</pre>
+two.on('event_3', function(){ alert('got an event_3'); });</pre>
           <div class="sandbox" id="sandbox3">sandbox loading...</div>
         </fieldset>
 
         <fieldset id="sample_04" class="" style="">
-          <legend>4) Subscribers, publishers and global events</legend>
-          <p>Pub-Sub schema's involving two or more objects/functions are commonplace.<br/>
-             The <pre>ke</pre>object itself is a publisher, to whom any kolosso-evented 
-             instance may listen.</p>
+          <legend>4) Event payloads and multiple callbacks</legend>
+          <p>Each trigger command can add a payload to its event.<br/>
+          Listeners can attach many callbacks to the same event type. There is no guarantee on the order callbacks are executed</p>
             <pre>
 var one = ke({});
 var two = ke(function(){});
-two.on('event_type_4', function(payload){ alert('payload=' + payload); });</pre>
+two.on('event_4', function(){ alert('got an event_4'); });
+two.on('event_4', function(payload){ alert('payload=' + payload); });</pre>
           <div class="sandbox" id="sandbox4">sandbox loading...</div>
         </fieldset>
 
         <fieldset id="sample_05" class="" style="">
-          <legend>5) Listening to oneself</legend>
-          <p>A kolosso-evented object or function can first of all listen to its own events.<br/>
-          This is mainly useful when a complex widget must synchronize its own parts.</p>
+          <legend>5) Exclusive relationships</legend>
+          <p>A kolosso-evented object/function may have a private list of publishers 
+             to whom it listens with callbacks set through the <code>onLocal</code> method</p>
             <pre>
 var one = ke({});
-one.on('event_type_5', function(){ alert('got an event_type_5'); });</pre>
+var two = ke(function(){});
+var three = ke({}, one); // could be [one, two] as well
+three.on('event_5', function(){ alert('private event_5'); });
+three.onLocal('event_5', function(){ alert('event_5 from one'); });</pre>
           <div class="sandbox" id="sandbox5">sandbox loading...</div>
         </fieldset>
         
@@ -112,10 +114,6 @@ one.on('event_type_5', function(){ alert('got an event_type_5'); });</pre>
         <script type="text/template" id="tplCommand"><% if (! _hidden) { %><span class="command"><%= command %></span>
         <span class="prefix"><%= this.resultPrefix %></span><span class="<%= _class %>"><%= result %></span>
         <% } %></script>
-        
-        <p>Other features, not illustrated in this page:<br/>
-        - Serialisation of the plugin status with ordered recording of the chosen items<br/>
-        - Restore of the plugin after serialisation.</p>
         
         <br clear="both"/>
 
@@ -137,55 +135,27 @@ one.on('event_type_5', function(){ alert('got an event_type_5'); });</pre>
     <script src="javascripts/samples/sample_03.js"></script>
     <script src="javascripts/samples/sample_04.js"></script>
     <script src="javascripts/samples/sample_05.js"></script>
+    <script src="javascripts/samples/sample_06.js"></script>
+    <script src="javascripts/samples/sample_07.js"></script>
 
     <script src="javascripts/sandbox-console.js"></script>
     <script type="text/javascript">
       jQuery(document).ready(function($) {
-        // Create the sandbox:
-        window.sandbox1 = new Sandbox.View({
-          el : $('#sandbox1'),
-          model : new Sandbox.Model(), // or etc.          
-          // these are optional (defaults are given here):
-          resultPrefix : " => ",
-          helpText : "type javascript commands into the console, hit enter to evaluate. \n[up/down] to scroll through history, ':clear' to reset it. \n[alt + return/up/down] for returns and multi-line editing.",
-          tabCharacter : "\t",
-          placeholder : "// type one.trigger('event_type_1') and hit enter (:help for info)"
-        });
-        window.sandbox2 = new Sandbox.View({
-          el : $('#sandbox2'),
-          model : new Sandbox.Model(), // or etc.          
-          // these are optional (defaults are given here):
-          resultPrefix : " => ",
-          helpText : "type javascript commands into the console, hit enter to evaluate. \n[up/down] to scroll through history, ':clear' to reset it. \n[alt + return/up/down] for returns and multi-line editing.",
-          tabCharacter : "\t",
-          placeholder : "// type one.trigger('event_type_2') and hit enter (:help for info)"
-        });
-        window.sandbox3 = new Sandbox.View({
-          el : $('#sandbox3'),
-          model : new Sandbox.Model(), // or etc.          
-          // these are optional (defaults are given here):
-          resultPrefix : " => ",
-          helpText : "type javascript commands into the console, hit enter to evaluate. \n[up/down] to scroll through history, ':clear' to reset it. \n[alt + return/up/down] for returns and multi-line editing.",
-          tabCharacter : "\t",
-          placeholder : "// type one.trigger('event_type_3','whatever') and hit enter (:help for info)"
-        });
-        window.sandbox4 = new Sandbox.View({
-          el : $('#sandbox4'),
-          model : new Sandbox.Model(), // or etc.          
-          // these are optional (defaults are given here):
-          resultPrefix : " => ",
-          helpText : "type javascript commands into the console, hit enter to evaluate. \n[up/down] to scroll through history, ':clear' to reset it. \n[alt + return/up/down] for returns and multi-line editing.",
-          tabCharacter : "\t",
-          placeholder : "// type one.trigger('event_type_4') and hit enter (:help for info)"
-        });
-        window.sandbox5 = new Sandbox.View({
-          el : $('#sandbox5'),
-          model : new Sandbox.Model(), // or etc.          
-          // these are optional (defaults are given here):
-          resultPrefix : " => ",
-          helpText : "type javascript commands into the console, hit enter to evaluate. \n[up/down] to scroll through history, ':clear' to reset it. \n[alt + return/up/down] for returns and multi-line editing.",
-          tabCharacter : "\t",
-          placeholder : "// type one.trigger('event_type_5') and hit enter (:help for info)"
+        [
+         { count: 1, selector: '#sandbox1', placeholder: "// type one.trigger('event_1') and hit enter (:help for info)"},
+         { count: 2, selector: '#sandbox2', placeholder: "// type one.trigger('event_2') and hit enter (:help for info)"},
+         { count: 3, selector: '#sandbox3', placeholder: "// type ke.trigger('event_3') or one.trigger('event_3')"},
+         { count: 4, selector: '#sandbox4', placeholder: "// type one.trigger('event_4')"},
+         { count: 5, selector: '#sandbox5', placeholder: "// type one.trigger('event_5') or two.trigger('event_5')"}
+        ].forEach(function(item) {
+          window['sandbox' + item.count] = new Sandbox.View({
+            el : $(item.selector),
+            model : new Sandbox.Model(),
+            resultPrefix : ' => ',
+            helpText : "type javascript commands into the console, hit enter to evaluate. \n[up/down] to scroll through history, ':clear' to reset it. \n[alt + return/up/down] for returns and multi-line editing.",
+            tabCharacter : '\t',
+            placeholder : item.placeholder
+          });
         });
       });
     </script>    
