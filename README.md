@@ -7,4 +7,4 @@ This is a feather-light implementation of an event-manager for any JS object, no
 
 Download the project, double click on the main HTML file to run all the tests using Mocha.
 
-[Here](http://muzietto.github.io/kolosso-eventer/) is a presentation using an interactive sandbox to try ouy the code.
+[Here](http://muzietto.github.io/kolosso-eventer/) is a presentation using an interactive sandbox to try out the code.
