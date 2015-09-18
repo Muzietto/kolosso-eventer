@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Kolosso-eventer</title>
+    <title>Kolosso-Eventer</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -24,7 +24,7 @@
   <body style="color:#1F1E1E;">
     <div class="wrapper">
       <header>
-        <h1>Kolosso-Eventer</h1>
+        <h1>Kolosso-Eventer &nbsp;(<code>ke</code>)</h1>
         <p>Feather-light library to manage events on all JS objects</p>
 
         <ul>
@@ -38,11 +38,11 @@
       <section>
         <h3>
           <a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages">
-          <span class="octicon octicon-link"></span></a>Kolosso-eventer presentation.</h3>
+          <span class="octicon octicon-link"></span></a>Kolosso-Eventer presentation.</h3>
 
 		
-        <p>The following examples illustrate the basic functionalities of this library.<br/>
-        All the needed customisation code is put inside this HTML page. <br/></p>
+        <p>These examples illustrate the basic functionalities of this library. The customisation code for each step is already loaded for you to try, following the instructions on the command line. <br/><br/>
+        You may also use each console to build and run any experiment you wish to try.</p>
 
         <fieldset id="sample_01" class="" style="">
           <legend>1) Working principles</legend>
@@ -68,7 +68,7 @@ one.on('event_2', function(){ alert('got an event_2'); });</pre>
         <fieldset id="sample_03" class="" style="">
           <legend>3) Subscribers, publishers and global events</legend>
           <p>Pub/Sub schema's involving two+ objects or functions are commonplace.<br/>
-             The <code>ke</code>object itself is a publisher, to whom any kolosso-evented 
+             The <code>ke</code>object itself is a publisher, to which every kolosso-evented 
              instance will listen.</p>
             <pre>
 var one = ke({});
@@ -92,12 +92,12 @@ two.on('event_4', function(payload){ alert('payload=' + payload); });</pre>
         <fieldset id="sample_05" class="" style="">
           <legend>5) Exclusive relationships</legend>
           <p>A kolosso-evented object/function may have a private list of publishers 
-             to whom it listens with callbacks set through the <code>onLocal</code> method</p>
+             to which it listens with callbacks set through the <code>onLocal</code> method</p>
             <pre>
 var one = ke({});
 var two = ke(function(){});
 var three = ke({}, one); // could be [one, two] as well
-three.on('event_5', function(){ alert('private event_5'); });
+three.on('event_5', function(){ alert('generic event_5'); });
 three.onLocal('event_5', function(){ alert('event_5 from one'); });</pre>
           <div class="sandbox" id="sandbox5">sandbox loading...</div>
         </fieldset>
@@ -135,8 +135,6 @@ three.onLocal('event_5', function(){ alert('event_5 from one'); });</pre>
     <script src="javascripts/samples/sample_03.js"></script>
     <script src="javascripts/samples/sample_04.js"></script>
     <script src="javascripts/samples/sample_05.js"></script>
-    <script src="javascripts/samples/sample_06.js"></script>
-    <script src="javascripts/samples/sample_07.js"></script>
 
     <script src="javascripts/sandbox-console.js"></script>
     <script type="text/javascript">

@@ -1,5 +1,5 @@
 
 var one = ke({});
-one.on('event_type_2', function(){ alert('got an event_type_2'); });
+one.on('event_2', function(){ alert('got an event_2'); });
 
 
